@@ -20,6 +20,8 @@ public class AutoSuggestions {
 		driver.get("https://www.google.com/");
 		driver.switchTo().activeElement().sendKeys("Hello");
 		
+		
+		
 	}
 
 }

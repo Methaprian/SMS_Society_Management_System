@@ -3,17 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="allModule_SMS_POM.TC_ACC_01_POM_Test">
+      <class name="practice_package.BrokenLinkTest">
         <methods>
-          <include name="configBM"/>
-          <include name="configBS"/>
-          <include name="configBC"/>
-          <include name="configAM"/>
-          <include name="createAndSearchAdmin"/>
-          <include name="configAS"/>
-          <include name="configAC"/>
+          <include name="linkTest"/>
         </methods>
-      </class> <!-- allModule_SMS_POM.TC_ACC_01_POM_Test -->
+      </class> <!-- practice_package.BrokenLinkTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
