@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="Suite">
+<groups><run><include name="regression"></include></run></groups>
+  <test thread-count="1" parallel="tests" name="Test">
+    <classes>
+      <class name="allModule_SMS_POM.Tc_Activities_13_POM_Test"/>
+      <class name="allModule_SMS_POM.TC_ACT_01_POM_Test"/>
+      <class name="allModule_SMS_POM.TC_ACC_01_POM_Test"/>
+      <class name="allModule_SMS_POM.Tc_Activities_10_POM_Test"/>
+      <class name="allModule_SMS_POM.TC_ACC_02_POM_Test"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

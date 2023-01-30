@@ -1,6 +1,8 @@
 package com.SM.SocialManagementSystem.GenericUtility;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -107,5 +109,16 @@ public class ExcelUtility extends FileUtility {
 			}
 		}
 		return objArr;
+	}
+	
+	public void writeDataIntoExcel(String sheetName, int rowNo, int cellNo, String data) throws Throwable {
+		FileInputStream fisExcel = new FileInputStream(IPathConstants.excelPATH);
+		Workbook wb = WorkbookFactory.create(fisExcel);
+		Sheet sheet = wb.getSheet(sheetName);
+		Row row = sheet.getRow(rowNo);
+		Cell cell = row.createCell(cellNo);
+		cell.setCellValue(data);
+		FileOutputStream fos=new FileOutputStream(IPathConstants.excelPATH);
+		wb.write(fos);
 	}
 }
