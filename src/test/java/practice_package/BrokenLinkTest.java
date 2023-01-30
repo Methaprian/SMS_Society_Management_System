@@ -19,7 +19,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BrokenLinkTest {
 
-	
+
 	ExcelUtility eLib=new ExcelUtility();
 	@Test
 	public void linkTest() throws Throwable {
@@ -38,24 +38,30 @@ public class BrokenLinkTest {
 
 		for (int i = 0; i < linksList.size(); i++) {
 			String link = linksList.get(i).getAttribute("href");
+			String linkText=linksList.get(i).getText();
 			URL url;
-			int statusCode=0;
+			Integer statusCode=0;
+			String statusMessage;
 
 			try {
 				url=new URL(link);
 				URLConnection urlConnect = url.openConnection();
 				HttpURLConnection httpUrlConnect=(HttpURLConnection)urlConnect;
 				statusCode=httpUrlConnect.getResponseCode();
-				
-				if(statusCode>400) {
-					brokenLinks.add(link+" ----> "+statusCode);
+				statusMessage=httpUrlConnect.getResponseMessage();
+				if(statusCode>=400) {
+					brokenLinks.add(linkText+" ---> "+link+" ----> "+statusCode+" ---> "+statusMessage);
 				}
 			} catch (Exception e) {
 				brokenLinks.add(link);
 				continue;
 			}
-			
-		System.out.println(link+" ----> "+statusCode);
+			eLib.writeDataIntoExcel("Broken_Links", i, 0, linkText);
+			eLib.writeDataIntoExcel("Broken_Links", i, 1, link);
+			eLib.writeDataIntoExcel("Broken_Links", i, 2, statusCode.toString());
+			eLib.writeDataIntoExcel("Broken_Links", i, 3, statusMessage);
+
+			System.out.println(linkText+" ---> "+link+" ----> "+statusCode+" ---> "+statusMessage);
 		}
 		//System.out.println(brokenLinks);
 	}

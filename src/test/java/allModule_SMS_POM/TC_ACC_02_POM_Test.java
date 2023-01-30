@@ -3,6 +3,8 @@ package allModule_SMS_POM;
 import java.awt.Robot;
 import java.util.HashMap;
 
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.SM.SocialManagementSystem.GenericUtility.BaseClass;
@@ -10,13 +12,15 @@ import com.SM.SocialManagementSystem.ObjectPage.AddStudentPage;
 import com.SM.SocialManagementSystem.ObjectPage.HomePage;
 import com.SM.SocialManagementSystem.ObjectPage.StudentPage;
 
+@Listeners(com.SM.SocialManagementSystem.GenericUtility.ListnerImplementationClass.class)
 public class TC_ACC_02_POM_Test extends BaseClass{
 	
-	@Test
+	@Test(invocationCount = 2, groups = "regression")
 	public void createStudent() throws Throwable {
 
 		//Click on Students Link
 		HomePage home = new HomePage(driver);
+		Assert.assertTrue(home.getStudentLink().isEnabled());
 		home.clickOnStudentLink();
 		//Click on Add Student
 		StudentPage stud= new StudentPage(driver);

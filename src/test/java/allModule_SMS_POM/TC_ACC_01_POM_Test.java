@@ -14,7 +14,7 @@ import com.SM.SocialManagementSystem.ObjectPage.HomePage;
 @Listeners(com.SM.SocialManagementSystem.GenericUtility.ListnerImplementationClass.class)
 public class TC_ACC_01_POM_Test extends BaseClass{
 
-	@Test(retryAnalyzer = com.SM.SocialManagementSystem.GenericUtility.RetryImplimentationClass.class)
+	@Test(retryAnalyzer = com.SM.SocialManagementSystem.GenericUtility.RetryImplimentationClass.class, groups = "smoke")
 	public void createAndSearchAdmin() throws Throwable {
 		
 		//Click on Administrator Link
